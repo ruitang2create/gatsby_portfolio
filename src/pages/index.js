@@ -15,6 +15,7 @@ const IndexPage = () => (
     <Hero />
     <About />
     <Works heading="What I've built" />
+    <Email />
   </Layout>
 )
 

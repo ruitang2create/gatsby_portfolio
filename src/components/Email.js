@@ -7,33 +7,10 @@ const Email = () => {
     return (
         <EmailContainer>
             <EmailContent>
-                <h1>Get Access to Exclusive Offers</h1>
-                <p>Sign up for your newsletter below to get $100 off your first trip!</p>
-                <form action="#">
-                    <FormWrap>
-                        <label htmlFor="email">
-                            <input type="email" placeholder="Enter your email" id="email" />
-                        </label>
-                        <Button 
-                            as="button" 
-                            type="submit" 
-                            primary="true" 
-                            round="true"
-                            css={`
-                                height: 48px;
-
-                                @media screen and (max-width: 768px) {
-                                    width: 100%;
-                                    min-width: 350px;
-                                }
-
-                                @media screen and (max-width: 400px) {
-                                    width: 100%;
-                                    min-width: 250px;
-                            `}
-                        >Sign Up</Button>
-                    </FormWrap>
-                </form>
+                <h1>Get In Touch</h1>
+                <p>Feel free to send me an email if you want to build something with me. My inbox is always open for cooperations and technical discussions.</p>
+                <p>I'm currently looking for opportunities to work as a front-end/back-end/full-stack developer. I will appreciate it if you can let me know that I might be a good fit for your open position.</p>
+                <EmailButton href="mailto:rui.tang.work@gmail.com" rel="noopener noreferrer" target="_blank">Email Me</EmailButton>
             </EmailContent>
         </EmailContainer>
     );
@@ -72,39 +49,31 @@ const EmailContent = styled.div`
     }
 
     p {
-        text-align: center;
+        text-align: left;
         margin-bottom: 2rem;
         font-size: clamp(1rem, 2.5vw, 1.5rem);
         padding: 0 1rem;
     }
-
-    form {
-        z-index: 10;
-    }
 `;
 
-const FormWrap = styled.div`
-    input {
-        padding: 1rem 1.5rem;
-        outline: none;
-        width: 350px;
-        height: 48px;
-        border-radius: 50px;
-        border: none;
-        margin-right: 1rem;
-    }
+const EmailButton = styled.a`
+    background: #00b36b;
+    white-space: nowrap;
+    padding: 10px 32px;
+    color: #001a0f;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    border: #00804d 1px solid;
+    min-width: 100px;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: 0.3s !important;
+    border-radius: 10px;
 
-    @media screen and (max-width: 768px) {
-        display: flex;
-        flex-direction: column;
-        padding: 0 1rem;
-
-        input {
-            margin-bottom: 1rem;
-            width: 100%;
-            margin-right: 0;
-        }
+    &:hover {
+        background: #00663d;
+        transform: translateY(-2px);
+        color: #b3ffe0;
     }
 `;
-
-
