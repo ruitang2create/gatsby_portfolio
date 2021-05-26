@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from './Button';
-import travelVid from '../assets/videos/travel2.mp4';
+import travelVid from '../assets/videos/tech3.mp4';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Hero = () => {
     return (
@@ -11,9 +12,10 @@ const Hero = () => {
             </HeroBg>
             <HeroContent>
                 <HeroItems>
-                    <HeroH1>Unreal Destinations</HeroH1>
-                    <HeroP>Out of this world</HeroP>
-                    <Button primary="true" round="true" big="true">Travel Now</Button>
+                    <HeroH3>Hello, world!</HeroH3>
+                    <HeroH1>My name is <HeroNameSpan>Rui Tang</HeroNameSpan></HeroH1>
+                    <HeroP>I develop things to make people's life easier</HeroP>
+                    <Button onClick={() => scrollTo("#aboutSection")} primary="true" round="true" big="true">Know more</Button>
                 </HeroItems>
             </HeroContent>
         </HeroContainer>
@@ -72,7 +74,7 @@ const HeroContent = styled.div`
     z-index: 3;
     height: calc(100vh - 80px);
     max-height: 100%;
-    padding: 0rem calc((100vw - 1300) / 2);
+    padding: 0rem calc((100vw - 1300px) / 2);
 `;
 
 const HeroItems = styled.div`
@@ -80,17 +82,30 @@ const HeroItems = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     height: 100vh;
     max-height: 100%;
     padding: 0;
-    color: #fff;
+    color: #00995c;
     line-height: 1.1;
     font-weight: bold;
 `;
 
 const HeroH1 = styled.h1`
     font-size: clamp(1.5rem, 6vw, 4rem);
+    margin-bottom: 1.5rem;
+    letter-spacing: 3px;
+    padding: 0 1rem;
+`;
+
+const HeroNameSpan = styled.span`
+    color: #b3ffe0;
+    border-bottom: #b3ffe0 1.5px solid;
+    padding-bottom: 5px;
+`;
+
+const HeroH3 = styled.h3`
+    font-size: clamp(1rem, 3vw, 2rem);
     margin-bottom: 1.5rem;
     letter-spacing: 3px;
     padding: 0 1rem;

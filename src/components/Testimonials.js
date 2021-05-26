@@ -9,7 +9,7 @@ const Testimonials = () => {
     const data = useStaticQuery(
         graphql`
             query {
-                allFile(filter: {sourceInstanceName: {eq: "testimonialImages"}}) {
+                allFile(filter: {relativePath: {regex: "/testimonials.*?jpg/"}}) {
                     edges {
                         node {
                             childImageSharp {

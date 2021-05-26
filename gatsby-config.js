@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Travel Website`,
-    description: `Travel website showcasing the best travel destinations and deals online.`,
+    title: `Rui Tang | Software Developer`,
+    description: `Rui Tang's portfolio`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -10,17 +10,10 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `tripImages`,
-        path: `${__dirname}/src/assets/images/trips`,
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `testimonialImages`,
-        path: `${__dirname}/src/assets/images/testimonials`,
-      },
-    },
+    },    
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -32,7 +25,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-gatsby-cloud`,
@@ -44,6 +37,13 @@ module.exports = {
         path: `./src/data/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/assets/files`,
+      },
+    },
+    `gatsby-plugin-smoothscroll`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

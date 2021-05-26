@@ -1,9 +1,9 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import { menuData } from '../data/MenuData';
 import { Button } from "./Button";
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Header = () => (
   <Nav>
@@ -11,13 +11,13 @@ const Header = () => (
     <Bars />
     <NavMenu>
       {menuData.map((item, index) => (
-        <NavLink to={item.link} key={index}>{item.title}</NavLink>
+        <NavLink onClick={() => scrollTo(item.link)} key={index}>{item.title}</NavLink>
       ))}
     </NavMenu>
     <NavBtn>
-      <Button primary="true" round="true">Book a Flight</Button>
+      <Button primary="true" round="true">Resume</Button>
     </NavBtn>
-  </Nav>
+  </Nav >
 )
 
 export default Header
@@ -32,14 +32,19 @@ const Nav = styled.nav`
   position: relative;
 `;
 
-const NavLink = styled(Link)`
-  color: #fff;
+const NavLink = styled.div`
+  color: #b3ffe0;
   display: flex;
   align-items: center;
-  text-decoration: none;
+  text-decoration: none !important;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+
+  &:hover {
+    border-bottom: #b3ffe0 1.5px solid;
+    color: #b3ffe0 !important;
+  }
 `;
 
 const Bars = styled(FaBars)`
