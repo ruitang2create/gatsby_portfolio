@@ -24,13 +24,7 @@ const ContactContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(
-        180deg, 
-        rgba(6, 20, 13, 0.8) 0%, 
-        rgba(6, 20, 13, 1) 100%
-    ), 
-    #184e35;
-    background-size: cover;
+    background: #06140d;
 `;
 
 const ContactContent = styled.div`

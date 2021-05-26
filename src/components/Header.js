@@ -6,7 +6,7 @@ import { Button } from "./Button";
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Header = () => (
-  <Nav>
+  <Nav id="headerSection">
     <NavLink to="/">HOME</NavLink>
     <Bars />
     <NavMenu>
