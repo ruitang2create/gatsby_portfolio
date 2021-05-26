@@ -101,7 +101,7 @@ export default Works;
 
 const ProjectsContainer = styled.div`
     min-height: 100vh;
-    padding: 5rem clamp(2vw,10vw,15vw);
+    padding: clamp(1rem, 5vh, 5rem) clamp(2vw,10vw,15vw);
     background: #184e35;
     // background-image: url(${worksBg});
     color: #b3ffe0;

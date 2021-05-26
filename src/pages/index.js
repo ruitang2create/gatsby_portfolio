@@ -5,7 +5,7 @@ import Hero from "../components/Hero"
 import Works from "../components/Works"
 import Testimonials from "../components/Testimonials"
 import Stats from "../components/Stats"
-import Email from "../components/Email"
+import Contact from "../components/Contact"
 import About from "../components/About"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,7 +15,7 @@ const IndexPage = () => (
     <Hero />
     <About />
     <Works heading="What I've built" />
-    <Email />
+    <Contact />
   </Layout>
 )
 
