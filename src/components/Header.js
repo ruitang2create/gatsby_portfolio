@@ -2,20 +2,20 @@ import * as React from "react";
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import { menuData } from '../data/MenuData';
-import { Button } from "./Button";
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import myResume from '../assets/files/Rui-Tang-Resume-Web-Developer.pdf';
 
 const Header = () => (
   <Nav id="headerSection">
     <NavLink to="/">HOME</NavLink>
-    <Bars />
+    {/* <Bars /> */}
     <NavMenu>
       {menuData.map((item, index) => (
         <NavLink onClick={() => scrollTo(item.link)} key={index}>{item.title}</NavLink>
       ))}
     </NavMenu>
     <NavBtn>
-      <Button primary="true" round="true">Resume</Button>
+      <ResumeButton href={myResume} target="_blank" rel="noreferrer">Resume</ResumeButton>
     </NavBtn>
   </Nav >
 )
@@ -81,4 +81,26 @@ const NavBtn = styled.div`
   @media screen and (max-width: 768px) {
     display: none;
   }
+`;
+
+const ResumeButton = styled.a`
+    background: transparent;
+    white-space: nowrap;
+    padding: 10px 32px;
+    color: #b3ffe0;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    border: #b3ffe0 1px solid;
+    min-width: 100px;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: 0.3s !important;
+    border-radius: 10px;
+
+    &:hover {
+        background: #00b36b;
+        transform: translateY(-2px);
+        color: #b3ffe0;
+    }
 `;

@@ -28,7 +28,7 @@ const About = () => {
                 <AboutTextAndResume>
                     {aboutData.paras.map(para => <AboutText>{para}</AboutText>)}
                     <ResumeBtnWrapper>
-                        <ResumeBtn href={myResume} target="_blank">Resume</ResumeBtn>
+                        <ResumeBtn href={myResume} target="_blank" rel="noreferrer">Resume</ResumeBtn>
                     </ResumeBtnWrapper>
                 </AboutTextAndResume>
                 <ImageWrapper>
@@ -57,6 +57,7 @@ const AboutHead = styled.div`
 const AboutTitle = styled.h1`
     font-size: clamp(1.8rem, 2.8vw, 4rem);
     text-align: left;
+    font-weight: bold;
 `;
 
 const AboutContent = styled.div`
@@ -64,7 +65,7 @@ const AboutContent = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
     padding: 1rem 1rem;
-    color: #001a0f;
+    color: #00331e;
     font-size: clamp(1rem, 1.2vw, 1.5rem);
 
     @media screen and (max-width: 768px) {
@@ -82,6 +83,7 @@ const AboutText = styled.p`
     text-align: left;
     margin-bottom: 1rem;
     line-height: 1.2;
+    font-weight: bold;
 `;
 
 const ImageWrapper = styled.div`

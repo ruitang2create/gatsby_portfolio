@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
 import { ImBookmarks, ImMobile, ImDisplay } from 'react-icons/im';
 import ProjectThumbnail from './ProjectThumbnail';
 import { worksData } from '../data/WorksData';
@@ -86,7 +85,7 @@ const Works = ({ heading }) => {
             <Modal dialogClassName="demoModal" show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton style={{ textAlign: "center" }}>Demo</Modal.Header>
                 <Modal.Body style={{ textAlign: "center" }}>
-                    <iframe width={frameSize.width} height={frameSize.height} src={demoUrl} ></iframe>
+                    <iframe title="demo" width={frameSize.width} height={frameSize.height} src={demoUrl} ></iframe>
                 </Modal.Body>
                 <Modal.Footer style={{ textAlign: "center" }}>
                     {desktopDemo && <ImDisplay onClick={() => setFrame('desktop')} />}
@@ -119,54 +118,4 @@ const ProjectWrapper = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 5rem;
     justify-items: center;
-`;
-
-const ProjectInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 2rem;
-
-    @media screen and (max-width: 280px) {
-        padding: 0 1rem;
-    }
-`;
-
-const ProjectImg = styled(GatsbyImage)`
-    height: 100%;
-    max-width: 100%;
-    position: relative;
-    border-radius: 10px;
-    filter: brightness(70%);
-    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-    &:hover {
-        filter: brightness(100%);
-    }
-`;
-
-const TextWrap = styled.div`
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 375px;
-`;
-
-const ProjectTitle = styled.div`
-    font-weight: 400;
-    font-size: 1rem;
-    margin-left: 0.5rem;
-`;
-
-const ProjectCard = styled.div`
-    line-height: 2;
-    width: 100%;
-    height: 500px;
-    position: relative;
-    border-radius: 10px;
-    transition: 0.2s ease;
-`;
-
-const phoneFrame = styled.iframe`
-    background: #000;
 `;

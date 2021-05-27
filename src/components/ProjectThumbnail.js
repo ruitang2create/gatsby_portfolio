@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { Carousel } from 'react-bootstrap';
 import { ImGithub, ImNewTab } from 'react-icons/im';
 
-const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, desktopDemo, imgs, demoSwitch, demoUrlSetter, mobileDemoSetter, desktopDemoSetter}) => {
+const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, desktopDemo, imgs, demoSwitch, demoUrlSetter, mobileDemoSetter, desktopDemoSetter }) => {
     const demoHandler = () => {
         mobileDemoSetter(mobileDemo);
         desktopDemoSetter(desktopDemo);
@@ -34,8 +34,8 @@ const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, d
                     </ProjectTechStacks>
                     <div style={{ clear: "both" }}></div>
                     <ProjectLinks>
-                        <GithubLink><ImGithub /> Github</GithubLink>
-                        <DemoLink onClick={() => demoSwitch()}><ImNewTab /> Live Demo</DemoLink>
+                        <GithubLink href={github} target="_blank" rel="noreferrer"><ImGithub /> Github</GithubLink>
+                        <DemoLink onClick={demoHandler}><ImNewTab /> Live Demo</DemoLink>
                     </ProjectLinks>
                 </ProjectCover>
             </CarouselContainer>
