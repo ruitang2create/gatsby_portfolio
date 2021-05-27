@@ -1,14 +1,12 @@
 import * as React from "react";
 import styled from 'styled-components';
-import { FaBars } from 'react-icons/fa';
 import { menuData } from '../data/MenuData';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import myResume from '../assets/files/Rui-Tang-Resume-Web-Developer.pdf';
 
 const Header = () => (
   <Nav id="headerSection">
-    <NavLink to="/">HOME</NavLink>
-    {/* <Bars /> */}
+    <NavLink to="/"><strong>RT</strong></NavLink>
     <NavMenu>
       {menuData.map((item, index) => (
         <NavLink onClick={() => scrollTo(item.link)} key={index}>{item.title}</NavLink>
@@ -44,21 +42,6 @@ const NavLink = styled.div`
   &:hover {
     border-bottom: #b3ffe0 1.5px solid;
     color: #b3ffe0 !important;
-  }
-`;
-
-const Bars = styled(FaBars)`
-  display: none;
-  color: #fff;
-
-  @media screen and (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 75%);
-    font-size: 1.8rem;
-    cursor: pointer;
   }
 `;
 
