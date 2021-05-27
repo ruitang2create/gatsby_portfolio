@@ -11,8 +11,8 @@ import './styles/DemoModal.css';
 const Works = ({ heading }) => {
     const [show, setShow] = useState(false);
     const [frameSize, setFrameSize] = useState({
-        width: "375",
-        height: "812",
+        width: "0",
+        height: "0",
     });
     const [demoUrl, setDemoUrl] = useState("http://portfolio.ruitangcs.com");
     const [mobileDemo, setMobileDemo] = useState(true);
@@ -54,6 +54,7 @@ const Works = ({ heading }) => {
                 demoUrlSetter={setDemoUrl}
                 mobileDemoSetter={setMobileDemo}
                 desktopDemoSetter={setDesktopDemo}
+                frameInitializer={setFrame}
             />
         ));
     }

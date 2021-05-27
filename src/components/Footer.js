@@ -1,9 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { sidebarData } from '../data/SidebarData';
 
 const Footer = () => {
     return (
         <FooterContainer>
+            <OutlinksWrapper>
+                {sidebarData.data.map((item, index) => (
+                    <OutlinkItem key={index}>
+                        <a href={item.link} target="_blank" rel="noreferrer">{item.icon}</a>
+                    </OutlinkItem>
+                ))}
+            </OutlinksWrapper>
             <CopyrightWrapper>
                 <p>Designed & Built by Rui Tang</p>
             </CopyrightWrapper>
@@ -29,3 +37,23 @@ const FooterContainer = styled.div`
 const CopyrightWrapper = styled.div``;
 
 const githubWrapper = styled.div``;
+
+const OutlinksWrapper = styled.div`
+    display: none;
+
+    @media screen and (max-width: 768px) {
+        padding: 1rem 30%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        color: ${sidebarData.textColor};
+    }
+`;
+
+const OutlinkItem = styled.div`
+    padding: 0.5rem;
+    transition: 0.3s;
+    font-size: 1.2rem;
+    &:hover {
+        transform: translateY(-5px);
+    }
+`;

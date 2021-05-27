@@ -4,8 +4,9 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { Carousel } from 'react-bootstrap';
 import { ImGithub, ImNewTab } from 'react-icons/im';
 
-const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, desktopDemo, imgs, demoSwitch, demoUrlSetter, mobileDemoSetter, desktopDemoSetter }) => {
+const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, desktopDemo, imgs, demoSwitch, demoUrlSetter, mobileDemoSetter, desktopDemoSetter, frameInitializer }) => {
     const demoHandler = () => {
+        frameInitializer('mobile');
         mobileDemoSetter(mobileDemo);
         desktopDemoSetter(desktopDemo);
         demoUrlSetter(url);
@@ -102,31 +103,33 @@ const ProjectType = styled.h5`
 const ProjectTitle = styled.h2`
     text-align: left;
     color: #1e6242;
-    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.6rem);
     background: #b1e7ce;
     padding: 0.5rem 2rem;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-bottom: 0;
+    margin-top: 1rem;
 `;
 
 const ProjectDesc = styled.p`
-    font-size: clamp(0.8rem, 1.5vw, 1.8rem);
+    font-size: clamp(1rem, 1.5vw, 1.6rem);
     background: #37ae77;
     padding: 1rem 2rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 1rem;
 `;
 
 const ProjectLinks = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: 1rem;
 `;
 
 const ProjectTechStacks = styled.div`
-    margin-bottom: 5px;
+    margin-bottom: 1rem;
 `;
 
 const TechTag = styled.div`
@@ -137,20 +140,21 @@ const TechTag = styled.div`
     border-radius: 10px;
     background: #37ae77;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    font-size: clamp(0.8rem, 1.4vw, 1.8rem);
+    font-size: clamp(0.8rem, 1.4vw, 1.3rem);
 `;
 
 const GithubLink = styled.a`
     cursor: pointer;
     align-items: center;
     justify-items: center;
-    transition: 0.2s;
+    transition: 0.3s;
     font-size: 16px;
-    color: inherit;
+    color: #b3ffe0;
 
     &:hover {
-        color: #e6fff5;
-        font-size: 17px;
+        color: #b3ffe0;
+        text-decoration: underline !important;
+        transform: translateY(-2px);
     }
 `;
 
@@ -158,12 +162,14 @@ const DemoLink = styled.div`
     cursor: pointer;
     align-items: center;
     justify-items: center;
-    transition: 0.2s;
+    transition: 0.3s;
     font-size: 16px;
+    color: #b3ffe0;
 
     &:hover {
-        color: #e6fff5;
-        font-size: 17px;
+        color: #b3ffe0;
+        text-decoration: underline !important;
+        transform: translateY(-2px);
     }
 `;
 
