@@ -41,8 +41,8 @@ const SidebarContainer = styled.div`
         padding: 2rem;
     }
 
-    @media screen and (max-width: 600px) {
-        padding: 1rem;
+    @media screen and (max-width: 768px) {
+        display: none;
     }
 `;
 
