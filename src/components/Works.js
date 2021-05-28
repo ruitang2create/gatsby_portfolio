@@ -41,6 +41,7 @@ const Works = ({ heading }) => {
     function getTrips(workInfo) {
         return workInfo.map((item, index) => (
             <ProjectThumbnail
+                key={index}
                 title={item.name}
                 desc={item.description}
                 type={item.type}

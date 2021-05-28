@@ -26,13 +26,13 @@ const About = () => {
             </AboutHead>
             <AboutContent>
                 <AboutTextAndResume>
-                    {aboutData.paras.map(para => <AboutText>{para}</AboutText>)}
+                    {aboutData.paras.map((para, index) => <AboutText key={index}>{para}</AboutText>)}
                     <ResumeBtnWrapper>
                         <ResumeBtn href={myResume} target="_blank" rel="noreferrer">Resume</ResumeBtn>
                     </ResumeBtnWrapper>
                 </AboutTextAndResume>
                 <ImageWrapper>
-                    <AboutImage image={data.file.childImageSharp.gatsbyImageData} />
+                    <AboutImage image={data.file.childImageSharp.gatsbyImageData} alt="" />
                 </ImageWrapper>
             </AboutContent>
         </AboutContainer>

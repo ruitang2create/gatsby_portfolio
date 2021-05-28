@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { BiGitRepoForked, BiStar } from 'react-icons/bi';
 import { sidebarData } from '../data/SidebarData';
+import axios from 'axios';
+import { repoData } from '../data/RepoData';
 
 const Footer = () => {
+    const [repoStats, setRepoStats] = useState({
+        stars: 0,
+        fokrs: 0,
+    });
+
+    const [fetched, setFetched] = useState(false);
+
+    const getRepoStats = () => {
+        console.log('Fetching github repo stas...');
+        axios.get(`https://api.github.com/repos/${repoData.owner}/${repoData.repo}`)
+            .then(res => {
+                console.log('Fetched github repo stas: ' + res.data);
+                setRepoStats({
+                    stars: res.data.stargazers_count,
+                    fokrs: res.data.forks_count,
+                });
+                setFetched(true);
+            })
+    }
+
+    if (!fetched) {
+        getRepoStats();
+    }
+
     return (
         <FooterContainer>
             <OutlinksWrapper>
@@ -15,9 +42,12 @@ const Footer = () => {
             <CopyrightWrapper>
                 <p>Designed & Built by Rui Tang</p>
             </CopyrightWrapper>
-            <githubWrapper>
-
-            </githubWrapper>
+            <GithubRepoWrapper href="https://github.com/ruitang2create/gatsby_portfolio" target="_blank" rel="noreferrer">
+                {/* <button onClick={getRepoStats}>Fetch Repo Stats</button> */}
+                <p>
+                    <span id="repoStars"><BiStar /> {repoStats.stars}</span><span><BiGitRepoForked /> {repoStats.fokrs}</span>
+                </p>
+            </GithubRepoWrapper>
         </FooterContainer>
     )
 };
@@ -34,9 +64,33 @@ const FooterContainer = styled.div`
     font-weight: bold;
 `;
 
-const CopyrightWrapper = styled.div``;
+const CopyrightWrapper = styled.div`
+    p {
+        margin-bottom: 0;
+    }
+`;
 
-const githubWrapper = styled.div``;
+const GithubRepoWrapper = styled.a`
+    margin-top: 0;
+    display: inline-block;
+    transition: 0.3s;
+    text-decoration: none !important;
+    color: inherit !important;
+        
+    &:hover {
+        cursor: pointer;
+        color: #b3ffe0 !important;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #repoStars {
+        margin-right: 1rem;
+    }
+`;
 
 const OutlinksWrapper = styled.div`
     display: none;
