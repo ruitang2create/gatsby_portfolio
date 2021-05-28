@@ -136,7 +136,7 @@ const TechTag = styled.div`
     display: inline;
     float: left;
     margin: 3px 5px;
-    padding: 5px 5px;
+    padding: 3px 5px;
     border-radius: 10px;
     background: #37ae77;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
