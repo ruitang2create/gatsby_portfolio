@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { Carousel } from 'react-bootstrap';
 import { ImGithub, ImNewTab } from 'react-icons/im';
 
-const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, desktopDemo, imgs, demoSwitch, demoUrlSetter, mobileDemoSetter, desktopDemoSetter, frameInitializer }) => {
+const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, desktopDemo, publicRepo, imgs, demoSwitch, demoUrlSetter, mobileDemoSetter, desktopDemoSetter, frameInitializer }) => {
     const demoHandler = () => {
         frameInitializer('mobile');
         mobileDemoSetter(mobileDemo);
@@ -14,7 +14,7 @@ const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, d
     };
 
     return (
-        <ThumbnailContainer>
+        <ThumbnailContainer id={title}>
             <CarouselContainer>
                 <StyledCarousel>
                     {imgs.map((item, index) => (
@@ -35,7 +35,7 @@ const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, d
                     </ProjectTechStacks>
                     <div style={{ clear: "both" }}></div>
                     <ProjectLinks>
-                        <GithubLink href={github} target="_blank" rel="noreferrer"><ImGithub /> Github</GithubLink>
+                        {publicRepo && <GithubLink href={github} target="_blank" rel="noreferrer"><ImGithub /> Github</GithubLink>}
                         <DemoLink onClick={demoHandler}><ImNewTab /> Live Demo</DemoLink>
                     </ProjectLinks>
                 </ProjectCover>
@@ -49,7 +49,7 @@ const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, d
                 </ProjectTechStacks>
                 <div style={{ clear: "both" }}></div>
                 <ProjectLinks>
-                    <GithubLink href={github} target="_blank" rel="noreferrer"><ImGithub /> Github</GithubLink>
+                    {publicRepo && <GithubLink href={github} target="_blank" rel="noreferrer"><ImGithub /> Github</GithubLink>}
                     <DemoLink onClick={demoHandler}><ImNewTab /> Live Demo</DemoLink>
                 </ProjectLinks>
             </ProjectContent>
@@ -79,6 +79,7 @@ const ThumbnailContainer = styled.div`
 
 const CarouselContainer = styled.div`
     position: relative;
+    // width: 80%;
 `;
 
 const ProjectCover = styled.div`
@@ -103,7 +104,7 @@ const ProjectType = styled.h5`
 const ProjectTitle = styled.h2`
     text-align: left;
     color: #1e6242;
-    font-size: clamp(1.5rem, 2.5vw, 2.6rem);
+    font-size: clamp(1.5rem, 2vw, 2.6rem);
     background: #b1e7ce;
     padding: 0.5rem 2rem;
     border-top-left-radius: 5px;

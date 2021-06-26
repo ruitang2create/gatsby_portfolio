@@ -24,7 +24,10 @@ const Works = ({ heading }) => {
     const data = useStaticQuery(
         graphql`
             query {
-                allFile(filter: {relativePath: {regex: "/works//"}}) {
+                allFile(
+                    filter: {relativePath: {regex: "/works//"}}
+                    sort: {fields: [name], order: ASC}
+                ) {
                     edges {
                         node {
                             childImageSharp {
@@ -50,6 +53,7 @@ const Works = ({ heading }) => {
                 techs={item.techs}
                 mobileDemo={item.mobile}
                 desktopDemo={item.desktop}
+                publicRepo={item.publicRepo}
                 imgs={data.allFile.edges.slice(index * 2, (index + 1) * 2)}
                 demoSwitch={handleShow}
                 demoUrlSetter={setDemoUrl}
@@ -68,7 +72,7 @@ const Works = ({ heading }) => {
         let fHeight = 0;
         if (device === 'desktop') {
             ratio = 1080 / 1920;
-            fWidth = vw * 0.8;
+            fWidth = vw * 0.9;
             fHeight = fWidth * ratio;
         } else if (device === 'mobile') {
             ratio = 375 / 812;
@@ -87,7 +91,13 @@ const Works = ({ heading }) => {
             <Modal dialogClassName="demoModal" show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton style={{ textAlign: "center" }}>Demo</Modal.Header>
                 <Modal.Body style={{ textAlign: "center" }}>
-                    <iframe title="demo" width={frameSize.width} height={frameSize.height} src={demoUrl} ></iframe>
+                    <iframe
+                        id="demoFrame"
+                        title="demo"
+                        width={frameSize.width}
+                        height={frameSize.height}
+                        src={demoUrl}
+                    />
                 </Modal.Body>
                 <Modal.Footer style={{ textAlign: "center" }}>
                     {desktopDemo && <ImDisplay onClick={() => setFrame('desktop')} />}
@@ -102,7 +112,7 @@ export default Works;
 
 const ProjectsContainer = styled.div`
     min-height: 100vh;
-    padding: clamp(1rem, 5vh, 5rem) clamp(2vw,10vw,15vw);
+    padding: 5rem clamp(2vw,10vw,15vw);
     background: #184e35;
     // background-image: url(${worksBg});
     color: #b3ffe0;

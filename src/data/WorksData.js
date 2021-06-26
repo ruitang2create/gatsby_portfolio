@@ -1,13 +1,25 @@
 export const worksData = [
     {
         name: "WPG New Life",
-        description: "A mobile web app that works as an online forum that helps new immigrants in Winnipeg to share daily news, trade stuffs, and post job Ads. ",
+        description: "A mobile web app that works as a social networking platform that provides a place allowing new immigrants in Winnipeg to share daily news, trade stuffs, and post jobs. There are also other useful tools comes with it, such as a currency converter and a mortgage calculator.",
         type: "Industrial Project",
         url: "http://www.wpgnewlife.com",
         github: "https://github.com/ruitang2create/canadaasians-en-mobile",
         techs: ["React", "Node.js", "Express", "MySQL", "RESTful API"],
         mobile: true,
         desktop: false,
+        public: false,
+    },
+    {
+        name: "Summoner X",
+        description: "A statistics website that portrays League of Legends players’ in-game performance by tracking and analyzing their gaming stats. Users can check any player's match history, rank information by searching a valid summoner id. Player's stats are presented with animated charts.",
+        type: "Personal Side Project",
+        url: "https://summoner-x.vercel.app/",
+        github: "https://github.com/ruitang2create/lol-profile",
+        techs: ["Next.js", "React", "Chart.js"],
+        mobile: true,
+        desktop: true,
+        publicRepo: true,
     },
     {
         name: "Agile Planner",
@@ -18,5 +30,6 @@ export const worksData = [
         techs: ["React", "Node.js", "Express", "MySQL"],
         mobile: true,
         desktop: true,
-    },
+        publicRepo: true,
+    }
 ];

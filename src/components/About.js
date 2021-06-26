@@ -20,8 +20,8 @@ const About = () => {
 
     return (
         <AboutContainer id="aboutSection">
-            <GiDominoMask size='clamp(3.5rem, 4vw, 4rem)' />
             <AboutHead>
+            <GiDominoMask size='clamp(3.5rem, 4vw, 4rem)' />
                 <AboutTitle>WHO'S THIS GUY</AboutTitle>
             </AboutHead>
             <AboutContent>
@@ -46,29 +46,34 @@ const AboutContainer = styled.div`
     justify-content: center;
     height: 100%;
     text-align: left;
-    padding: 3rem clamp(2vw, 10vw, 15vw);
+    padding: 5rem calc((100vw - 800px) / 2);
 `;
 
 
 const AboutHead = styled.div`
     text-align: left;
+
+    @media screen and (max-width: 800px) {
+        padding-left: 2rem;
+    }
 `;
 
 const AboutTitle = styled.h1`
-    font-size: clamp(1.8rem, 2.8vw, 4rem);
+    font-size: clamp(1.8rem, 2vw, 4rem);
     text-align: left;
     font-weight: bold;
+    padding:
 `;
 
 const AboutContent = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     grid-gap: 2rem;
-    padding: 1rem 1rem;
+    padding: 1rem 0;
     color: #00331e;
     font-size: clamp(1rem, 1.2vw, 1.5rem);
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 800px) {
         grid-template-columns: 1fr;
         padding: 2rem 2rem;
         text-align: center;
@@ -84,6 +89,7 @@ const AboutText = styled.p`
     margin-bottom: 1rem;
     line-height: 1.2;
     font-weight: bold;
+    font-size: 1rem;
 `;
 
 const ImageWrapper = styled.div`
@@ -92,17 +98,9 @@ const ImageWrapper = styled.div`
 
 const AboutImage = styled(GatsbyImage)`
     min-width: 180px;
-    width: 60%;
+    width: 80%;
     box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-
-    @media screen and (max-width: 1200px) {
-        width: 70%;
-    }
-
-    @media screen and (max-width: 900px) {
-        width: 80%;
-    }
 
     @media screen and (max-width: 768px) {
         width: 60%;

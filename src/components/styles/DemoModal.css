@@ -6,3 +6,7 @@
 .modal {
     text-align: center;
 }
+
+#demoFrame {
+    overflow: hidden;
+}
