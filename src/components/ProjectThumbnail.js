@@ -6,7 +6,7 @@ import { ImGithub, ImNewTab } from 'react-icons/im';
 
 const ProjectThumbnail = ({ title, desc, type, url, github, techs, mobileDemo, desktopDemo, publicRepo, imgs, demoSwitch, demoUrlSetter, mobileDemoSetter, desktopDemoSetter, frameInitializer }) => {
     const demoHandler = () => {
-        frameInitializer('mobile');
+        frameInitializer(desktopDemo ? 'desktop' : 'mobile');
         mobileDemoSetter(mobileDemo);
         desktopDemoSetter(desktopDemo);
         demoUrlSetter(url);

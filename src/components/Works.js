@@ -41,7 +41,7 @@ const Works = ({ heading }) => {
     );
 
 
-    function getTrips(workInfo) {
+    function getThumbnails(workInfo) {
         return workInfo.map((item, index) => (
             <ProjectThumbnail
                 key={index}
@@ -86,7 +86,7 @@ const Works = ({ heading }) => {
         <div id="worksSection">
             <ProjectsContainer>
                 <ProjectsHeading data-sal="zoom-in" data-sal-delay="3000" data-sal-duration="5000" data-sal-easing="ease-out-back"><ImBookmarks /> {heading}</ProjectsHeading>
-                <ProjectWrapper>{getTrips(worksData)}</ProjectWrapper>
+                <ProjectWrapper>{getThumbnails(worksData)}</ProjectWrapper>
             </ProjectsContainer>
             <Modal dialogClassName="demoModal" show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton style={{ textAlign: "center" }}>Demo</Modal.Header>
